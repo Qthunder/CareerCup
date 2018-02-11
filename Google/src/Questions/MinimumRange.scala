@@ -1,5 +1,6 @@
 package Questions
 
+import scala.collection.mutable
 import scala.collection.mutable.PriorityQueue
 
 object MinimumRange {
@@ -12,10 +13,10 @@ object MinimumRange {
 	
   def getSmallestRange(A :List[List[Int]]):(Int,Int)={
     import implicits._;
-    val Q=new PriorityQueue[List[Int]]();
+    val Q=new mutable.PriorityQueue[List[Int]]();
     A.foreach {Q.+=}
     
-   var currentRange=((A map (aList=>aList(0))).min,(A map (aList=>aList(0))).max);
+   var currentRange=((A map (_.head)).min,(A map (_.head).max);
    
    var minimumRange=currentRange
    var empty=false;
